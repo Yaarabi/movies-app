@@ -1,8 +1,9 @@
-
+import { Link } from "react-router-dom"
 
 
 const MovieCard = (props) => {
   return (
+        <Link to={`/movie/${ props.title }`}>
     <article className="card mt-5" style={{ height: "60vh", width: "30vw" }}>
         <img className="card-header" style={{ height: "65%" }} src={props.url} alt={"poster of "+ props.title} />
         <div className="card-body">
@@ -11,6 +12,7 @@ const MovieCard = (props) => {
         <h4>{ props.rate }</h4>
         </div>
     </article>
+        </Link>
   )
 }
 

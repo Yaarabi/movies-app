@@ -1,6 +1,6 @@
 
 import { useState, useContext } from "react"
-import { Context } from "./movieList"
+import { Context } from "../App"
 
 const AddMovie = ({ action }) => {
 
@@ -8,6 +8,7 @@ const AddMovie = ({ action }) => {
     const [ Description, setDescription ] = useState('')
     const [ PosterURL, setPosterURL ] = useState('')
     const [ Rating, setRating ] = useState('')
+    const [ trailer, setTrailer ]= useState('')
 
     const { movies, setMovies }= useContext(Context)
 
@@ -16,7 +17,8 @@ const AddMovie = ({ action }) => {
             title : Title,
             descreption : Description,
             posterURL: PosterURL,
-            rating: Rating
+            rating: Rating,
+            trailerURL : trailer
         }
 
         setMovies([ ...movies, obj ])
@@ -39,6 +41,11 @@ return (
         value={PosterURL}
         onChange={(e)=> setPosterURL(e.target.value)} 
         placeholder='Movie poster URL'
+        type="text" />
+        <input className='form-control' 
+        value={trailer}
+        onChange={(e)=> setTrailer(e.target.value)} 
+        placeholder='Movie trailerURL'
         type="text" />
         <input className='form-control' 
         value={Rating}
