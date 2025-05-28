@@ -3,7 +3,7 @@
 
 const MovieCard = (props) => {
   return (
-    <article className="card" style={{ height: "60vh", width: "30vw" }}>
+    <article className="card mt-5" style={{ height: "60vh", width: "30vw" }}>
         <img className="card-header" style={{ height: "65%" }} src={props.url} alt={"poster of "+ props.title} />
         <div className="card-body">
         <h4>{ props.title }</h4>

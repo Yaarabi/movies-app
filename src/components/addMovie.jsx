@@ -45,7 +45,7 @@ return (
         onChange={(e)=> setRating(e.target.value)} 
         placeholder='Movie Rating'
         type="text" />
-        <button onClick={()=>{ addMovie() ; action }} className='btn btn-primary'>Add</button>
+        <button onClick={()=>{ addMovie() ; action() }} className='btn btn-primary'>Add</button>
     </section>
 )
 }
