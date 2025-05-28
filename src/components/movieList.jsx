@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, createContext, Children } from "react"
 import MovieCard from "./movieCard"
 
+const Context = createContext()
 
-
-const MovieList = () => {
+const MovieList = ({ children }) => {
 
     const [ movies, setMovies ] = useState([])
 
@@ -16,6 +16,8 @@ const MovieList = () => {
 
 
   return (
+    <Context.Provider value={ {movies, setMovies} }>
+      { children }
     <section className="d-flex flex-wrap align-content-around justify-content-evenly" style={{minHeight: "200vh"}}>
         {(movies) ? movies.map((ele, i) => ( <MovieCard key = { i } 
         title = { ele.title }
@@ -24,7 +26,9 @@ const MovieList = () => {
         rate = { ele.rating }
         /> )) : ( <h1>Loading ...</h1>)}  
     </section>
+    </Context.Provider>
   )
 }
 
 export default MovieList
+export { Context }
